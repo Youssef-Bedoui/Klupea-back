@@ -22,10 +22,13 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-res.setHeader('Access-Control-Allow-Origin', 'https://klupea-e-commerce-app.onrender.com');
-res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, PATCH, PUT');
-res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-res.setHeader('Access-Control-Allow-Credentials', 'true');
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://klupea-e-commerce-app.onrender.com');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
 
 
 app.use(cors({

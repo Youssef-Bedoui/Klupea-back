@@ -16,7 +16,7 @@ const wishRoutes = require("./routes/wishRoutes.js");
 const newsletterRoutes = require("./routes/news_subs_Routes.js");
 const nodemailerRoutes = require("./routes/nodemailerRoutes.js");
 const { verifyAndRefreshToken } = require("././middlewares/Authorization.js");
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 
 app.use(express.json());
